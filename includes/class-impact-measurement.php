@@ -67,11 +67,13 @@ class Impact_Measurement {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
+
 		if ( defined( 'IMPACT_MEASUREMENT_VERSION' ) ) {
 			$this->version = IMPACT_MEASUREMENT_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
+
 		$this->plugin_name = 'impact-measurement';
 
 		$this->load_dependencies();
@@ -98,6 +100,11 @@ class Impact_Measurement {
 	 * @access   private
 	 */
 	private function load_dependencies() {
+
+		/**
+		 * The class responsible for defining all generic functions for the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/functions.php';
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
@@ -157,6 +164,10 @@ class Impact_Measurement {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu' );
+		$this->loader->add_filter( 'plugin_action_links_'.IMPACT_MEASUREMENT_PLUGIN_BASENAME, $plugin_admin, 'impact_measurement_settings_link' );
+		// $this->loader->add_filter( 'pre_update_option_impact_measurement_config', $plugin_admin, 'impact_measurement_config', 10, 2 );
+
 	}
 
 	/**
@@ -172,6 +183,9 @@ class Impact_Measurement {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+		$this->loader->add_action( 'init', $plugin_public, 'impact_measurement_cookie' );
+		$this->loader->add_action( 'wp_footer', $plugin_public, 'impact_measurement_render_survey_box' );
 
 	}
 

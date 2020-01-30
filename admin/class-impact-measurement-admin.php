@@ -100,4 +100,64 @@ class Impact_Measurement_Admin {
 
 	}
 
+	public function admin_menu() {
+        add_options_page(__('Impact Measurement settings', 'impact-measurement'), __('Impact Measurement', 'impact-measurement'),
+            'manage_options', 'im-settings', array(&$this, 'impact_measurement_page_admin'));
+        //call register settings function
+        add_action('admin_init', array(&$this, 'register_settings'));
+    }
+
+    public function register_settings(){
+        register_setting('impact-measurement-settings-group', 'impact_measurement_config');
+    }
+
+    public function impact_measurement_settings_link( $links ) {
+		// Build and escape the URL.
+		$url = esc_url( add_query_arg(
+			'page',
+			'im-settings',
+			get_admin_url() . 'admin.php'
+		) );
+
+		// Create the link.
+		$settings_link = "<a href='$url'>" . __( 'Settings' ) . '</a>';
+
+		// Adds the link to the end of the array.
+		array_push(
+			$links,
+			$settings_link
+		);
+
+		return $links;
+	}
+
+	/**
+	 * Render the options page for plugin
+	 *
+	 * @since    1.0.0
+	 */
+	public function impact_measurement_page_admin() {
+
+		include_once 'partials/impact-measurement-admin-display.php';
+
+	}
+
+	/**
+	 * Check status after save settings.
+	 */
+	public function impact_measurement_config( $new_value, $old_value ) {
+
+		$content = file_get_contents(IMPACT_MEASUREMENT_API.$new_value['code']);
+		$response = json_decode($content, true);
+
+		if ( $response && count($response['objects']) > 0 ) {
+			$new_value['status'] = true;
+		} else {
+			$new_value['status'] = false;
+		}
+
+		return $new_value;
+
+	}
+
 }

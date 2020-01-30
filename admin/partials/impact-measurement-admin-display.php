@@ -14,3 +14,52 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
+
+<?php
+
+// check user capabilities
+if ( !current_user_can('manage_options') ) {
+    return;
+}
+
+$im_config = get_option('impact_measurement_config');
+
+$current_language = strtolower(get_bloginfo('language'));
+$site_lang = substr($current_language, 0,2);
+
+if ( defined( 'POLYLANG_VERSION' ) ) {
+	$languages = pll_languages_list();
+} else {
+	$languages = array($site_lang);
+}
+
+?>
+
+<div class="wrap">
+
+    <h1><?php _e('Impact Measurement Settings', 'impact-measurement'); ?></h1>
+
+    <form method="post" action="options.php">
+
+        <?php settings_fields('impact-measurement-settings-group'); ?>
+
+        <?php do_settings_sections('impact-measurement-settings-group'); ?>
+
+        <table class="form-table" role="presentation">
+        	<tbody>
+        		<tr>
+        			<th scope="row">
+		            	<label for="code"><?php _e('Code', 'impact-measurement'); ?></label>
+		            </th>
+		            <td>
+		            	<input type="text" id="im-code" name="impact_measurement_config[code]" value="<?php echo $im_config['code']; ?>" class="regular-text">
+		            </td>
+		        </tr>
+	        </tbody>
+        </table>
+
+        <?php submit_button(); ?>
+    
+    </form>
+
+</div>
