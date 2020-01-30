@@ -74,6 +74,8 @@ class Impact_Measurement_Public {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/impact-measurement-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css', array(), $this->version, 'all' );
+		wp_enqueue_style( 'bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css', array(), $this->version, 'all' );
 
 	}
 
@@ -97,6 +99,58 @@ class Impact_Measurement_Public {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/impact-measurement-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( 'bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js', array( 'jquery' ), $this->version, false );
+
+	}
+
+	/**
+	 * Generate cookie
+	 *
+	 * @since    1.0.0
+	 */
+	public function impact_measurement_cookie() {
+
+		global $impact_measurement_cookie;
+
+		if ( ! $_COOKIE['impact_measurement'] ) {
+			$impact_measurement_cookie = md5(uniqid(rand(), true));
+			setcookie("impact_measurement", $impact_measurement_cookie, (time() + (10 * 365 * 24 * 60 * 60)), IMPACT_MEASUREMENT_COOKIE_DOMAIN_SCOPE);
+			add_action( 'wp_head', array(&$this, 'impact_measurement_sso_cookie') ); // SSO cookie
+		}
+
+	}
+
+	/**
+	 * Generate SSO cookie
+	 *
+	 * @since    1.0.0
+	 */
+	public function impact_measurement_sso_cookie() {
+
+		global $impact_measurement_cookie;
+
+		$domains = array(
+			'.bvs.br' => IMPACT_MEASUREMENT_BVS_COOKIE_DOMAIN,
+			'.bvsalud.org' => IMPACT_MEASUREMENT_BVSALUD_COOKIE_DOMAIN,
+			'.bireme.org' => IMPACT_MEASUREMENT_BIREME_COOKIE_DOMAIN
+		);
+
+		if ( array_key_exists(IMPACT_MEASUREMENT_COOKIE_DOMAIN_SCOPE, $domains) ) {
+			$im_config = get_option('impact_measurement_config');
+			$im_api = base64_encode(IMPACT_MEASUREMENT_API);
+
+			unset($domains[IMPACT_MEASUREMENT_COOKIE_DOMAIN_SCOPE]);
+
+			foreach ($domains as $domain => $url) {
+				$src = $url.'/setcookie.php?im_cookie='.$impact_measurement_cookie.'&im_code='.$im_config['code'].'&im_data='.$im_api;
+		        ?>
+		        <script type="text/javascript">
+		            var el = document.createElement("img");
+		            el.setAttribute('src', "<?php echo $src; ?>");
+		        </script>
+		        <?php
+		    }
+		}
 
 	}
 
