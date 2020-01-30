@@ -165,6 +165,7 @@ class Impact_Measurement {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'impact_measurement_check_status' );
 		$this->loader->add_filter( 'plugin_action_links_'.IMPACT_MEASUREMENT_PLUGIN_BASENAME, $plugin_admin, 'impact_measurement_settings_link' );
 		// $this->loader->add_filter( 'pre_update_option_impact_measurement_config', $plugin_admin, 'impact_measurement_config', 10, 2 );
 

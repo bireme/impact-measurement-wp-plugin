@@ -55,6 +55,18 @@ if ( defined( 'POLYLANG_VERSION' ) ) {
 		            	<input type="text" id="im-code" name="impact_measurement_config[code]" value="<?php echo $im_config['code']; ?>" class="regular-text">
 		            </td>
 		        </tr>
+		        <tr>
+        			<th scope="row">
+		            	<?php _e('Status', 'impact-measurement'); ?>
+		            </th>
+		            <td>
+		            	<?php if ( $im_config['status'] ) : ?>
+		            		<div class="im-notice notice inline notice-alt notice-info"><p><?php _e('Active', 'impact-measurement'); ?></p></div>
+		            	<?php else : ?>
+		            		<div class="im-notice notice inline notice-alt notice-warning"><p><?php _e('Inactive', 'impact-measurement'); ?></p></div>
+		            	<?php endif; ?>
+		            </td>
+		        </tr>
 	        </tbody>
         </table>
 

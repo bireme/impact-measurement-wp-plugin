@@ -160,4 +160,28 @@ class Impact_Measurement_Admin {
 
 	}
 
+	/**
+	 * Check status after load settings page.
+	 */
+	function impact_measurement_check_status(){
+
+		global $pagenow;
+		
+		$im_config = get_option('impact_measurement_config');
+
+		if ( 'options-general.php' == $pagenow && 'im-settings' == $_GET['page'] ) {
+			$content = file_get_contents(IMPACT_MEASUREMENT_API.$im_config['code']);
+			$response = json_decode($content, true);
+
+			if ( $response && count($response['objects']) > 0 ) {
+				$im_config['status'] = true;
+			} else {
+				$im_config['status'] = false;
+			}
+
+			update_option('impact_measurement_config', $im_config);
+		}
+
+	}
+
 }
