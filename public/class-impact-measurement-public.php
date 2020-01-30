@@ -104,6 +104,17 @@ class Impact_Measurement_Public {
 	}
 
 	/**
+	 * Render the survey box
+	 *
+	 * @since    1.0.0
+	 */
+	public function impact_measurement_render_survey_box() {
+
+	    include_once 'partials/impact-measurement-public-display.php';
+
+	}
+
+	/**
 	 * Generate cookie
 	 *
 	 * @since    1.0.0
