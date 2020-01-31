@@ -50,69 +50,24 @@
 		})
 
 		/* Add */
-		$('.star1').mouseenter(function(){
+		$('.star-rating').mouseenter(function(){
 			$(this).addClass("fas");
-		})
-		$('.star2').mouseenter(function(){
-			$(this).addClass("fas");
-			$(this).siblings(".star1").addClass("fas");
-		})
-		$('.star3').mouseenter(function(){
-			$(this).addClass("fas");
-			$(this).siblings(".star1, .star2").addClass("fas");
-		})
-		$('.star4').mouseenter(function(){
-			$(this).addClass("fas");
-			$(this).siblings(".star1, .star2, .star3").addClass("fas");
-		})
-		$('.star5').mouseenter(function(){
-			$(this).addClass("fas");
-			$(this).siblings(".star1, .star2, .star3, .star4").addClass("fas");
+			$(this).prevAll().addClass("fas");
 		})
 
 		/* Remove */
-		$('.star1').mouseleave(function(){
-			$('.star1').removeClass("fas", "fa-star");
-		})
-		$('.star2').mouseleave(function(){
-			$('.star1, .star2').removeClass("fas", "fa-star");
-		})
-		$('.star3').mouseleave(function(){
-			$('.star1, .star2, .star3').removeClass("fas", "fa-star");
-		})
-		$('.star4').mouseleave(function(){
-			$('.star1, .star2, .star3, .star4').removeClass("fas", "fa-star");
-		})
-		$('.star5').mouseleave(function(){
-			$('.star1, .star2, .star3, .star4, .star5').removeClass("fas", "fa-star");
+		$('.star-rating').mouseleave(function(){
+			$(this).removeClass("fas", "fa-star");
+			$(this).prevAll().removeClass("fas", "fa-star");
 		})
 
 		/* Click */
-		$('.star1').click(function(){
-			$(this).siblings(".star1, .star2, .star3, .star4, .star5").removeClass("fa-star, starClick");
+		$('.star-rating').click(function(){
+			$('.star-rating').removeClass("fa-star, starClick");
 			$(this).addClass("fa-star, starClick");
+			$(this).prevAll().addClass("fa-star, starClick");
 		})
-		$('.star2').click(function(){
-			$(this).siblings(".star1, .star2, .star3, .star4, .star5").removeClass("fa-star, starClick");
-			$(this).addClass(" fa-star, starClick");
-			$(this).siblings(".star1").addClass("fa-star, starClick");
-		})
-		$('.star3').click(function(){
-			$(this).siblings(".star1, .star2, .star3, .star4, .star5").removeClass("fa-star, starClick");
-			$(this).addClass(" fa-star, starClick");
-			$(this).siblings(".star1, .star2").addClass("fa-star, starClick");
-		})
-		$('.star4').click(function(){
-			$(this).siblings(".star1, .star2, .star3, .star4, .star5").removeClass("fa-star, starClick");
-			$(this).addClass(" fa-star, starClick");
-			$(this).siblings(".star1, .star2, .star3").addClass("fa-star, starClick");
-		})
-		$('.star5').click(function(){
-			$(this).siblings(".star1, .star2, .star3, .star4, .star5").removeClass("fa-star, starClick");
-			$(this).addClass(" fa-star, starClick");
-			$(this).siblings(".star1, .star2, .star3, .star4").addClass("fa-star, starClick");
-		})
-
+		
 	    $('div.rowQuestion input:radio, .star-rating').click(function(e) {
 	    	// Check if all questions have been answered
 	        var len = $('div.rowQuestion:not(:has(:radio:checked,:hidden[value!=""]))').length;
