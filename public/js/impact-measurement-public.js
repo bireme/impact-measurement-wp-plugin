@@ -79,12 +79,12 @@
 	        // Stop form from submitting normally
 	        e.preventDefault();
 
-	        var url, datastring = [];
+	        var datastring = [];
+	        var url = $('#feedbackForm').attr("action");
 	     
 	        // Get some values from elements on the page
 	        $("#conteudoFeedback form").each(function(i){
 	        	var $form = $( this );
-	        	url = $form.attr("action");
 	        	datastring[i] = $form.serialize();
 			});
 
