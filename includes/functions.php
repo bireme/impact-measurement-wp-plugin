@@ -18,11 +18,11 @@ if ( ! function_exists('get_page_type') ) {
 	    $loop = 'Unknown';
 
 	    if ( $wp_query->is_page ) {
-	        $loop = is_front_page() ? 'Home' : 'Post';
+	        $loop = is_front_page() ? 'Home' : 'Document';
 	    } elseif ( $wp_query->is_home ) {
 	        $loop = 'Home';
 	    } elseif ( $wp_query->is_single ) {
-	        $loop = ( $wp_query->is_attachment ) ? 'Attachment' : 'Post';
+	        $loop = ( $wp_query->is_attachment ) ? 'Attachment' : 'Document';
 	    } elseif ( $wp_query->is_category ) {
 	        $loop = 'Search';
 	    } elseif ( $wp_query->is_tag ) {

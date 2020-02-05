@@ -104,10 +104,10 @@
 							</div>
 							<div class="col-12">
 								<div class="btn-group btn-group-toggle" data-toggle="buttons">
-								    <label class="btn btn-secondary">
+								    <label class="btn btn-secondary btn-yesno">
 								    	<input type="radio" name="rating" id="opt1" autocomplete="off" value="1"> <?php _e('Yes'); ?>
 								    </label>
-								    <label class="btn btn-secondary">
+								    <label class="btn btn-secondary btn-yesno">
 								    	<input type="radio" name="rating" id="opt2" autocomplete="off" value="2"> <?php _e('No'); ?>
 								    </label>
 								</div>
