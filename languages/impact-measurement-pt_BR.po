@@ -2,119 +2,119 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Impact Measurement\n"
 "POT-Creation-Date: 2020-02-06 09:55-0300\n"
-"PO-Revision-Date: 2020-02-06 09:59-0300\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2020-02-06 10:08-0300\n"
 "Language-Team: \n"
-"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.6\n"
 "X-Poedit-Basepath: ..\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-KeywordsList: __;_e\n"
+"Last-Translator: \n"
+"Language: pt_BR\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: admin/class-impact-measurement-admin.php:104
 msgid "Impact Measurement settings"
-msgstr ""
+msgstr "Configurações - Impact Measurement"
 
 #: admin/class-impact-measurement-admin.php:104
 msgid "Impact Measurement"
-msgstr ""
+msgstr "Impact Measurement"
 
 #: admin/class-impact-measurement-admin.php:123
 msgid "Settings"
-msgstr ""
+msgstr "Configurações"
 
 #: admin/partials/impact-measurement-admin-display.php:40
 msgid "Impact Measurement Settings"
-msgstr ""
+msgstr "Configurações - Impact Measurement"
 
 #: admin/partials/impact-measurement-admin-display.php:52
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 #: admin/partials/impact-measurement-admin-display.php:60
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: admin/partials/impact-measurement-admin-display.php:64
 msgid "Active"
-msgstr ""
+msgstr "Ativo"
 
 #: admin/partials/impact-measurement-admin-display.php:66
 msgid "Inactive"
-msgstr ""
+msgstr "Inativo"
 
 #: public/partials/impact-measurement-public-display.php:51
 msgid "Your opinion is very important to us!"
-msgstr ""
+msgstr "Sua opinião é muito importante para nós!"
 
 #: public/partials/impact-measurement-public-display.php:52
 msgid "How satisfied are you?"
-msgstr ""
+msgstr "Quão satisfeito você está?"
 
 #: public/partials/impact-measurement-public-display.php:108
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: public/partials/impact-measurement-public-display.php:111
 msgid "No"
-msgstr ""
+msgstr "Não"
 
 #: public/partials/impact-measurement-public-display.php:124
 msgid "Very satisfied"
-msgstr ""
+msgstr "Muito satisfeito"
 
 #: public/partials/impact-measurement-public-display.php:128
 msgid "Satisfied"
-msgstr ""
+msgstr "Satisfeito"
 
 #: public/partials/impact-measurement-public-display.php:132
 msgid "Neither satisfied nor dissatisfied"
-msgstr ""
+msgstr "Nem satisfeito nem insatisfeito"
 
 #: public/partials/impact-measurement-public-display.php:136
 msgid "Dissatisfied"
-msgstr ""
+msgstr "Insatisfeito"
 
 #: public/partials/impact-measurement-public-display.php:140
 msgid "Very dissatisfied"
-msgstr ""
+msgstr "Muito insatisfeito"
 
 #: public/partials/impact-measurement-public-display.php:152
 msgid "Strongly agree"
-msgstr ""
+msgstr "Concordo totalmente"
 
 #: public/partials/impact-measurement-public-display.php:156
 msgid "Agree"
-msgstr ""
+msgstr "Concordo"
 
 #: public/partials/impact-measurement-public-display.php:160
 msgid "Neither agree nor disagree"
-msgstr ""
+msgstr "Nem concordo nem discordo"
 
 #: public/partials/impact-measurement-public-display.php:164
 msgid "Disagree"
-msgstr ""
+msgstr "Discordo"
 
 #: public/partials/impact-measurement-public-display.php:168
 msgid "Strongly disagree"
-msgstr ""
+msgstr "Discordo totalmente"
 
 #: public/partials/impact-measurement-public-display.php:178
 msgid "Send"
-msgstr ""
+msgstr "Enviar"
 
 #: public/partials/impact-measurement-public-display.php:183
 msgid "Thanks for your feedback."
-msgstr ""
+msgstr "Obrigado pelo seu feedback."
 
 #: public/partials/impact-measurement-public-display.php:186
 msgid "Communication problem."
-msgstr ""
+msgstr "Problema de comunicação."
 
 #: public/partials/impact-measurement-public-display.php:188
 msgid "Please try again later."
-msgstr ""
+msgstr "Tente novamente mais tarde."
