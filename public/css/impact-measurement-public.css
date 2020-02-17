@@ -107,3 +107,26 @@
 #formdata-submit {
 	font-weight: 800;
 }
+
+body.page #boxFeedback,
+body.single #boxFeedback {
+	position: initial;
+	width: 100%;
+	margin-top: 3em;
+	/*background: #f5f5f5;*/
+}
+body.page #conteudoFeedback,
+body.single #conteudoFeedback {
+	margin: 0 auto;
+	float: none;
+	text-align: center;
+}
+body.page #iconeFeedback,
+body.single #iconeFeedback {
+	display: none;
+}
+body.page #feedbackFechar,
+body.single #feedbackFechar {
+	visibility: hidden;
+	position: absolute;
+}

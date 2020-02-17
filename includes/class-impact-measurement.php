@@ -187,6 +187,7 @@ class Impact_Measurement {
 
 		$this->loader->add_action( 'init', $plugin_public, 'impact_measurement_cookie' );
 		$this->loader->add_action( 'wp_footer', $plugin_public, 'impact_measurement_render_survey_box' );
+		$this->loader->add_filter( 'the_content', $plugin_public, 'impact_measurement_after_post_content' );
 
 	}
 

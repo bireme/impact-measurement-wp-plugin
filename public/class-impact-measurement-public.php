@@ -110,7 +110,9 @@ class Impact_Measurement_Public {
 	 */
 	public function impact_measurement_render_survey_box() {
 
-	    include_once 'partials/impact-measurement-public-display.php';
+		if ( !is_single() && !is_page() ) {
+	    	include_once 'partials/impact-measurement-public-display.php';
+	    }
 
 	}
 
@@ -162,6 +164,23 @@ class Impact_Measurement_Public {
 		        <?php
 		    }
 		}
+
+	}
+
+	public function impact_measurement_after_post_content($content) {
+
+	    if ( is_single() || is_page() ) {
+
+	    	ob_start();
+	    	include 'partials/impact-measurement-public-display.php';
+	    	$contents = ob_get_contents();
+	    	ob_end_clean();
+
+	    	$content .= $contents;
+
+	    }
+
+	    return $content;
 
 	}
 

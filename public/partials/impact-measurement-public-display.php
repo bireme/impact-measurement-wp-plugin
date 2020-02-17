@@ -29,8 +29,8 @@
 	$locale = get_bloginfo('language');
 	$site_lang = substr($locale, 0,2);
 
-	$content = file_get_contents(IMPACT_MEASUREMENT_API.$im_config['code']);
-	$response = json_decode($content, true);
+	$contents = file_get_contents(IMPACT_MEASUREMENT_API.$im_config['code']);
+	$response = json_decode($contents, true);
 
 ?>
 
