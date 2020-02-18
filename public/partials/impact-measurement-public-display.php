@@ -40,7 +40,7 @@
 
 <div id="boxFeedback">
 	<div id="conteudoFeedback">
-		<form action="http://127.0.0.1:8000/send-feedback/" id="feedbackForm">
+		<form action="<?php echo IMPACT_MEASUREMENT_URL; ?>/send-feedback/" id="feedbackForm">
 			<input type="hidden" name="code" value="<?php echo $response['objects'][0]['code']; ?>">
 			<input type="hidden" name="user" value="<?php echo $user; ?>">
 			<input type="hidden" name="myvhl_user" value="<?php echo $myvhl_user; ?>">
@@ -53,7 +53,7 @@
 		<hr />
 		<div class="im-questions">
 			<?php foreach ($response['objects'][0]['questions'] as $key => $question) : $text = $question['question'][$site_lang]; ?>
-				<form action="http://127.0.0.1:8000/send-feedback/" id="feedbackForm<?php echo $key; ?>">
+				<form action="<?php echo IMPACT_MEASUREMENT_URL; ?>/send-feedback/" id="feedbackForm<?php echo $key; ?>">
 					<input type="hidden" name="question" value="<?php echo $question['id']; ?>">
 					<?php if ( 'star' == $question['type'] ) : // Star ?>
 						<div class="row rowQuestion text-center">
