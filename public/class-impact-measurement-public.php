@@ -75,7 +75,7 @@ class Impact_Measurement_Public {
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/impact-measurement-public.css', array(), $this->version, 'all' );
 		wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css', array(), $this->version, 'all' );
-		wp_enqueue_style( 'bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css', array(), $this->version, 'all' );
+		wp_enqueue_style( 'bootstrap-iso', plugin_dir_url( __FILE__ ) . 'css/bootstrap-iso.css', array(), $this->version, 'all' );
 
 	}
 

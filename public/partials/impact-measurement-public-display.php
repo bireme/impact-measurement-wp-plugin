@@ -38,7 +38,7 @@
 
 <?php if ( $response && count($response['objects']) > 0 ) : ?>
 
-<div id="boxFeedback">
+<div id="boxFeedback" class="bootstrap-iso">
 	<div id="conteudoFeedback">
 		<form action="<?php echo IMPACT_MEASUREMENT_URL; ?>/send-feedback/" id="feedbackForm">
 			<input type="hidden" name="code" value="<?php echo $response['objects'][0]['code']; ?>">
