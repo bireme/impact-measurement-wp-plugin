@@ -61,6 +61,7 @@
 }
 #conteudoFeedback h2 {
 	font-size: 14px;
+	padding: 1.5em 0 0;
 }
 .rowQuestion {
 	border-bottom: 1px dotted #ddd;
