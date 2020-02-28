@@ -169,7 +169,7 @@ class Impact_Measurement_Admin {
 		
 		$im_config = get_option('impact_measurement_config');
 
-		if ( 'options-general.php' == $pagenow && 'im-settings' == $_GET['page'] ) {
+		if ( ('options-general.php' == $pagenow || 'admin.php' == $pagenow) && 'im-settings' == $_GET['page'] ) {
 			$content = file_get_contents(IMPACT_MEASUREMENT_API.$im_config['code']);
 			$response = json_decode($content, true);
 
