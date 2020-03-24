@@ -127,7 +127,7 @@ class Impact_Measurement_Public {
 
 		if ( ! $_COOKIE['impact_measurement'] ) {
 			$impact_measurement_cookie = md5(uniqid(rand(), true));
-			setcookie("impact_measurement", $impact_measurement_cookie, (time() + (10 * 365 * 24 * 60 * 60)), IMPACT_MEASUREMENT_COOKIE_DOMAIN_SCOPE);
+			setcookie("impact_measurement", $impact_measurement_cookie, (time() + (10 * 365 * 24 * 60 * 60)), '/', IMPACT_MEASUREMENT_COOKIE_DOMAIN_SCOPE);
 			add_action( 'wp_head', array(&$this, 'impact_measurement_sso_cookie') ); // SSO cookie
 		}
 
@@ -151,17 +151,18 @@ class Impact_Measurement_Public {
 		if ( array_key_exists(IMPACT_MEASUREMENT_COOKIE_DOMAIN_SCOPE, $domains) ) {
 			$im_config = get_option('impact_measurement_config');
 			$im_api = base64_encode(IMPACT_MEASUREMENT_API);
-
 			unset($domains[IMPACT_MEASUREMENT_COOKIE_DOMAIN_SCOPE]);
 
 			foreach ($domains as $domain => $url) {
-				$src = $url.'/setcookie.php?im_cookie='.$impact_measurement_cookie.'&im_code='.$im_config['code'].'&im_data='.$im_api;
-		        ?>
-		        <script type="text/javascript">
-		            var el = document.createElement("img");
-		            el.setAttribute('src', "<?php echo $src; ?>");
-		        </script>
-		        <?php
+				if ( ! empty($url) ) {
+					$src = $url.'/setcookie.php?im_cookie='.$impact_measurement_cookie.'&im_code='.$im_config['code'].'&im_data='.$im_api;
+			        ?>
+			        <script type="text/javascript">
+			            var el = document.createElement("img");
+			            el.setAttribute('src', "<?php echo $src; ?>");
+			        </script>
+			        <?php
+			    }
 		    }
 		}
 
