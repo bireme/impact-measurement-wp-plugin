@@ -49,7 +49,7 @@
 		</form>
 		<div id="feedbackFechar"><i class="fas fa-times"></i></div>
 		<h1><?php _e('Your opinion is very important to us!', 'impact-measurement'); ?></h1>
-		<h2><?php _e('How satisfied are you?', 'impact-measurement'); ?></h2>
+		<!-- <h2><?php _e('How satisfied are you?', 'impact-measurement'); ?></h2> -->
 		<hr />
 		<div class="im-questions">
 			<?php foreach ($response['objects'][0]['questions'] as $key => $question) : $text = $question['question'][$site_lang]; ?>
