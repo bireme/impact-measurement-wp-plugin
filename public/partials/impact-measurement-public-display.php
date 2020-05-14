@@ -118,7 +118,7 @@
 							<div class="col-12 text-center feedbackTitulo">
 								<b><?php echo ( $text ) ? $text : $question['question'][$locale]; ?></b>
 							</div>
-							<div class="col-12">
+							<div class="col-12 rowOptions">
 								<div>
 									<input type="radio" id="5b" name="rating" value="5">
 									<label for="5c"><?php _e('Very satisfied', 'impact-measurement'); ?></label>
@@ -146,7 +146,7 @@
 							<div class="col-12 text-center feedbackTitulo">
 								<b><?php echo ( $text ) ? $text : $question['question'][$locale]; ?></b>
 							</div>
-							<div class="col-12">
+							<div class="col-12 rowOptions">
 								<div>
 									<input type="radio" id="5c" name="rating" value="5">
 									<label for="5c"><?php _e('Strongly agree', 'impact-measurement'); ?></label>

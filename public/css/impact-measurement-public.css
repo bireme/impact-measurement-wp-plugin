@@ -139,3 +139,7 @@ body.page .im-questions,
 body.single .im-questions {
     max-height: none;
 }
+body.page .rowOptions,
+body.single .rowOptions {
+    text-align: left;
+}
