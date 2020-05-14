@@ -101,7 +101,7 @@
     display: inline-block;
 }
 .im-questions {
-    max-height: 250px;
+    max-height: 150px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -134,4 +134,8 @@ body.page #feedbackFechar,
 body.single #feedbackFechar {
     visibility: hidden;
     position: absolute;
+}
+body.page .im-questions,
+body.single .im-questions {
+    max-height: none;
 }
