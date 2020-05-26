@@ -38,8 +38,8 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'IMPACT_MEASUREMENT_VERSION', '1.0.0' );
 define( 'IMPACT_MEASUREMENT_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'IMPACT_MEASUREMENT_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-defined('IMPACT_MEASUREMENT_URL') or define('IMPACT_MEASUREMENT_URL', 'https://im.teste.bireme.org');
-defined('IMPACT_MEASUREMENT_API') or define('IMPACT_MEASUREMENT_API', IMPACT_MEASUREMENT_URL.'/api/main/?format=json&code=');
+defined('IMPACT_MEASUREMENT_URL') or define('IMPACT_MEASUREMENT_URL', 'https://im.bireme.org');
+define('IMPACT_MEASUREMENT_API', IMPACT_MEASUREMENT_URL.'/api/main/?format=json&code=');
 defined('IMPACT_MEASUREMENT_COOKIE_DOMAIN_SCOPE') or define('IMPACT_MEASUREMENT_COOKIE_DOMAIN_SCOPE', '/');
 defined('IMPACT_MEASUREMENT_BVS_COOKIE_DOMAIN') or define('IMPACT_MEASUREMENT_BVS_COOKIE_DOMAIN', '');
 defined('IMPACT_MEASUREMENT_BVSALUD_COOKIE_DOMAIN') or define('IMPACT_MEASUREMENT_BVSALUD_COOKIE_DOMAIN', '');

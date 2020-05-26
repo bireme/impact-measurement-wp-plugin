@@ -12,42 +12,52 @@
 
 if ( ! function_exists('get_page_type') ) {
 
-	function get_page_type() {
+	function get_page_type($slug=false) {
 
 		global $wp_query;
-	    $loop = 'Unknown';
+	    $type = 'wp-unknown';
+
+	    $pages = array(
+		    'wp-home' => 'Home',
+		    'wp-document' => 'Document',
+		    'wp-search' => 'Search',
+		    'wp-attachment' => 'Attachment',
+		    'wp-404' => '404',
+		    'wp-unknown' => 'Unknown'
+		);
 
 	    if ( $wp_query->is_page ) {
-	        $loop = is_front_page() ? 'Home' : 'Document';
+	        $type = is_front_page() ? 'wp-home' : 'wp-document';
 	    } elseif ( $wp_query->is_home ) {
-	        $loop = 'Home';
+	        $type = 'wp-home';
 	    } elseif ( $wp_query->is_single ) {
-	        $loop = ( $wp_query->is_attachment ) ? 'Attachment' : 'Document';
+	        $type = ( $wp_query->is_attachment ) ? 'wp-attachment' : 'wp-document';
 	    } elseif ( $wp_query->is_category ) {
-	        $loop = 'Search';
+	        $type = 'wp-search';
 	    } elseif ( $wp_query->is_tag ) {
-	        $loop = 'Search';
+	        $type = 'wp-search';
 	    } elseif ( $wp_query->is_tax ) {
-	        $loop = 'Search';
+	        $type = 'wp-search';
 	    } elseif ( $wp_query->is_archive ) {
 	        if ( $wp_query->is_day ) {
-	            $loop = 'Search';
+	            $type = 'wp-search';
 	        } elseif ( $wp_query->is_month ) {
-	            $loop = 'Search';
+	            $type = 'wp-search';
 	        } elseif ( $wp_query->is_year ) {
-	            $loop = 'Search';
+	            $type = 'wp-search';
 	        } elseif ( $wp_query->is_author ) {
-	            $loop = 'Search';
+	            $type = 'wp-search';
 	        } else {
-	            $loop = 'Search';
+	            $type = 'wp-search';
 	        }
 	    } elseif ( $wp_query->is_search ) {
-	        $loop = 'Search';
+	        $type = 'wp-search';
 	    } elseif ( $wp_query->is_404 ) {
-	        $loop = '404';
+	        $type = 'wp-404';
 	    }
 
-	    return $loop;
+	    $page = ( $slug ) ? $type : $pages[$type];
+	    return $page;
 
 	}
 

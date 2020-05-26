@@ -25,18 +25,19 @@
 	$im_config = get_option('impact_measurement_config');
 	$user = ( $_COOKIE['impact_measurement'] ) ? $_COOKIE['impact_measurement'] : $impact_measurement_cookie;
 	$myvhl_user = ( $_COOKIE['userID'] ) ? $_COOKIE['userID'] : '';
+	$page_type = get_page_type(true);
 
 	$locale = get_bloginfo('language');
 	$site_lang = substr($locale, 0,2);
 
-	$contents = file_get_contents(IMPACT_MEASUREMENT_API.$im_config['code']);
+	$contents = file_get_contents(IMPACT_MEASUREMENT_API.$im_config['code'].'&page='.$page_type);
 	$response = json_decode($contents, true);
 
 ?>
 
 <!-- Render survey box -->
 
-<?php if ( $response && count($response['objects']) > 0 ) : ?>
+<?php if ( $response && count($response['objects']) > 0 && array_key_exists('questions', $response['objects'][0]) ) : ?>
 
 <div id="boxFeedback" class="bootstrap-iso">
 	<div id="conteudoFeedback">
