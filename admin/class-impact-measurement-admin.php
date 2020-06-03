@@ -163,7 +163,7 @@ class Impact_Measurement_Admin {
 	/**
 	 * Check status after load settings page.
 	 */
-	function impact_measurement_check_status(){
+	public function impact_measurement_check_status(){
 
 		global $pagenow;
 		

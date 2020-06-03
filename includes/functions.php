@@ -23,34 +23,20 @@ if ( ! function_exists('get_page_type') ) {
 		    'wp-search' => 'Search',
 		    'wp-attachment' => 'Attachment',
 		    'wp-404' => '404',
-		    'wp-unknown' => 'Unknown'
+		    'wp-unknown' => 'Unknown',
+		    'wp-plugin-search' => 'Search',
+		    'wp-plugin-document' => 'Document'
 		);
 
-	    if ( $wp_query->is_page ) {
-	        $type = is_front_page() ? 'wp-home' : 'wp-document';
+		if ( function_exists('is_plugin') && is_plugin() ) {
+			$type = is_plugin();
+	    } elseif ( $wp_query->is_page ) {
+	        $type = ( is_front_page() ) ? 'wp-home' : 'wp-document';
 	    } elseif ( $wp_query->is_home ) {
 	        $type = 'wp-home';
 	    } elseif ( $wp_query->is_single ) {
 	        $type = ( $wp_query->is_attachment ) ? 'wp-attachment' : 'wp-document';
-	    } elseif ( $wp_query->is_category ) {
-	        $type = 'wp-search';
-	    } elseif ( $wp_query->is_tag ) {
-	        $type = 'wp-search';
-	    } elseif ( $wp_query->is_tax ) {
-	        $type = 'wp-search';
-	    } elseif ( $wp_query->is_archive ) {
-	        if ( $wp_query->is_day ) {
-	            $type = 'wp-search';
-	        } elseif ( $wp_query->is_month ) {
-	            $type = 'wp-search';
-	        } elseif ( $wp_query->is_year ) {
-	            $type = 'wp-search';
-	        } elseif ( $wp_query->is_author ) {
-	            $type = 'wp-search';
-	        } else {
-	            $type = 'wp-search';
-	        }
-	    } elseif ( $wp_query->is_search ) {
+	    } elseif ( $wp_query->is_category || $wp_query->is_tag || $wp_query->is_tax || $wp_query->is_archive || $wp_query->is_search ) {
 	        $type = 'wp-search';
 	    } elseif ( $wp_query->is_404 ) {
 	        $type = 'wp-404';
