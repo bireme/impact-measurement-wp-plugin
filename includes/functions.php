@@ -69,9 +69,7 @@ if ( ! function_exists('is_plugin') ) {
 }
 
 if ( ! function_exists('get_page_type') ) {
-
     function get_page_type($slug=false) {
-
         global $wp_query;
         $type = 'wp-unknown';
 
@@ -102,9 +100,7 @@ if ( ! function_exists('get_page_type') ) {
 
         $page = ( $slug ) ? $type : $pages[$type];
         return $page;
-
     }
-
 }
 
 ?>
