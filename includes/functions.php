@@ -28,9 +28,7 @@ if ( ! function_exists('get_page_type') ) {
 		    'wp-plugin-document' => 'Document'
 		);
 
-		if ( function_exists('is_plugin') && is_plugin() ) {
-			$type = is_plugin();
-	    } elseif ( $wp_query->is_page ) {
+	    if ( $wp_query->is_page ) {
 	        $type = ( is_front_page() ) ? 'wp-home' : 'wp-document';
 	    } elseif ( $wp_query->is_home ) {
 	        $type = 'wp-home';
@@ -38,6 +36,8 @@ if ( ! function_exists('get_page_type') ) {
 	        $type = ( $wp_query->is_attachment ) ? 'wp-attachment' : 'wp-document';
 	    } elseif ( $wp_query->is_category || $wp_query->is_tag || $wp_query->is_tax || $wp_query->is_archive || $wp_query->is_search ) {
 	        $type = 'wp-search';
+	    } elseif ( function_exists('is_plugin') && is_plugin() ) {
+			$type = is_plugin();
 	    } elseif ( $wp_query->is_404 ) {
 	        $type = 'wp-404';
 	    }
