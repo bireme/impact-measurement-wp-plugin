@@ -1,7 +1,8 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Impact Measurement\n"
-"POT-Creation-Date: 2020-02-06 09:55-0300\n"
+"POT-Creation-Date: 2020-09-14 14:47-0300\n"
 "PO-Revision-Date: 2020-02-06 09:59-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -47,74 +48,87 @@ msgstr ""
 msgid "Inactive"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:51
-msgid "Your opinion is very important to us!"
+#: admin/partials/impact-measurement-admin-display.php:72
+msgid "Survey Link"
 msgstr ""
 
 #: public/partials/impact-measurement-public-display.php:52
+msgid "Your opinion is very important to us!"
+msgstr ""
+
+#: public/partials/impact-measurement-public-display.php:53
 msgid "How satisfied are you?"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:108
+#: public/partials/impact-measurement-public-display.php:109
 msgid "Yes"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:111
+#: public/partials/impact-measurement-public-display.php:112
 msgid "No"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:124
+#: public/partials/impact-measurement-public-display.php:125
 msgid "Very satisfied"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:128
+#: public/partials/impact-measurement-public-display.php:129
 msgid "Satisfied"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:132
+#: public/partials/impact-measurement-public-display.php:133
 msgid "Neither satisfied nor dissatisfied"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:136
+#: public/partials/impact-measurement-public-display.php:137
 msgid "Dissatisfied"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:140
+#: public/partials/impact-measurement-public-display.php:141
 msgid "Very dissatisfied"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:152
+#: public/partials/impact-measurement-public-display.php:153
 msgid "Strongly agree"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:156
+#: public/partials/impact-measurement-public-display.php:157
 msgid "Agree"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:160
+#: public/partials/impact-measurement-public-display.php:161
 msgid "Neither agree nor disagree"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:164
+#: public/partials/impact-measurement-public-display.php:165
 msgid "Disagree"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:168
+#: public/partials/impact-measurement-public-display.php:169
 msgid "Strongly disagree"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:178
+#: public/partials/impact-measurement-public-display.php:179
 msgid "Send"
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:183
-msgid "Thanks for your feedback."
+#: public/partials/impact-measurement-public-display.php:185
+#: public/partials/impact-measurement-public-display.php:189
+msgid "Thanks for your feedback!"
 msgstr ""
 
 #: public/partials/impact-measurement-public-display.php:186
+msgid "You can help us further by answering other questions. You will not spend more than 3 minutes."
+msgstr ""
+
+#: public/partials/impact-measurement-public-display.php:187
+msgid "Click here to access the survey"
+msgstr ""
+
+#: public/partials/impact-measurement-public-display.php:193
 msgid "Communication problem."
 msgstr ""
 
-#: public/partials/impact-measurement-public-display.php:188
+#: public/partials/impact-measurement-public-display.php:195
 msgid "Please try again later."
 msgstr ""
