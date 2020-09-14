@@ -49,7 +49,7 @@ if ( defined( 'POLYLANG_VERSION' ) ) {
         	<tbody>
         		<tr>
         			<th scope="row">
-		            	<label for="code"><?php _e('Code', 'impact-measurement'); ?></label>
+		            	<label for="im-code"><?php _e('Code', 'impact-measurement'); ?></label>
 		            </th>
 		            <td>
 		            	<input type="text" id="im-code" name="impact_measurement_config[code]" value="<?php echo $im_config['code']; ?>" class="regular-text">
@@ -65,6 +65,14 @@ if ( defined( 'POLYLANG_VERSION' ) ) {
 		            	<?php else : ?>
 		            		<div class="im-notice notice inline notice-alt notice-warning"><p><?php _e('Inactive', 'impact-measurement'); ?></p></div>
 		            	<?php endif; ?>
+		            </td>
+		        </tr>
+		        <tr>
+        			<th scope="row">
+		            	<label for="im-survey"><?php _e('Survey Link', 'impact-measurement'); ?></label>
+		            </th>
+		            <td>
+		            	<input type="text" id="im-survey" name="impact_measurement_config[survey]" value="<?php echo $im_config['survey']; ?>" class="regular-text">
 		            </td>
 		        </tr>
 	        </tbody>

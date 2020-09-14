@@ -181,7 +181,13 @@
 		</div>
 		<div class="feedback-message">
             <div class="alert alert-success result-ok" role="alert">
-                <?php _e('Thanks for your feedback.', 'impact-measurement'); ?>
+            	<?php if ( $im_config['survey'] ) : ?>
+                	<?php _e('Thanks for your feedback!', 'impact-measurement'); ?><br />
+                	<?php _e('You can help us further by answering other questions. You will not spend more than 3 minutes.', 'impact-measurement'); ?><br />
+                	<a href="<?php echo $im_config['survey']; ?>" target="_blank"><?php _e('Click here to access the survey', 'impact-measurement'); ?></a>
+                <?php else : ?>
+                	<?php _e('Thanks for your feedback.', 'impact-measurement'); ?>
+            	<?php endif; ?>
             </div>
             <div class="alert alert-warning result-error" role="alert">
                 <?php _e('Communication problem.', 'impact-measurement'); ?>
