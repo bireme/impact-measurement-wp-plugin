@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Impact Measurement\n"
 "POT-Creation-Date: 2020-09-14 14:55-0300\n"
-"PO-Revision-Date: 2020-09-14 14:57-0300\n"
+"PO-Revision-Date: 2020-09-14 21:54-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -114,7 +114,7 @@ msgstr "Enviar"
 #: public/partials/impact-measurement-public-display.php:185
 #: public/partials/impact-measurement-public-display.php:189
 msgid "Thanks for your feedback!"
-msgstr "Gracias por sus comentarios!"
+msgstr "¡Gracias por sus comentarios!"
 
 #: public/partials/impact-measurement-public-display.php:186
 msgid ""
