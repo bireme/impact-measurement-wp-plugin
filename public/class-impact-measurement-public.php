@@ -101,6 +101,12 @@ class Impact_Measurement_Public {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/impact-measurement-public.js', array( 'jquery' ), $this->version, false );
 		wp_enqueue_script( 'bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js', array( 'jquery' ), $this->version, false );
 
+		wp_localize_script($this->plugin_name, 'im_script_vars', array(
+                'ajaxurl' => admin_url( 'admin-ajax.php' ),
+                'ajaxnonce' => wp_create_nonce( 'ajax_post_validation' )
+            )
+        );
+
 	}
 
 	/**
@@ -111,7 +117,7 @@ class Impact_Measurement_Public {
 	public function impact_measurement_render_survey_box() {
 
 		if ( !is_single() && !is_page() ) {
-	    	include_once 'partials/impact-measurement-public-display.php';
+	    	include_once 'partials/impact-measurement-public-survey-display.php';
 	    }
 
 	}
@@ -183,6 +189,22 @@ class Impact_Measurement_Public {
 
 	    return $content;
 
+	}
+
+	public function impact_measurement_ajax_load_survey_box() {
+
+		ob_start();
+    	include 'partials/impact-measurement-public-survey-ajax.php';
+    	$contents = ob_get_contents();
+    	ob_end_clean();
+		
+		if ( $contents ) {
+			echo $contents;
+		} else {
+			echo 0;
+		}
+		
+		die();
 	}
 
 }

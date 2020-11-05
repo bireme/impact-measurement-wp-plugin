@@ -196,7 +196,7 @@
             </div>
         </div>
 	</div>
-	<div id="iconeFeedback">
+	<div id="iconFeedback">
 		<img src="<?php echo esc_url( IMPACT_MEASUREMENT_PLUGIN_URL . 'images/iconFeedback-'.$site_lang.'.svg' ); ?>" alt="">
 	</div>
 	<div class="clear"></div>
