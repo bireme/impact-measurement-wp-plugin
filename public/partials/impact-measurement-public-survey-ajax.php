@@ -25,14 +25,13 @@
 	$im_config = get_option('impact_measurement_config');
 	$user = ( $_COOKIE['impact_measurement'] ) ? $_COOKIE['impact_measurement'] : $impact_measurement_cookie;
 	$myvhl_user = ( $_COOKIE['userID'] ) ? $_COOKIE['userID'] : '';
-	$page_type = get_page_type(true);
+	$page_type = ( $_POST['page_type'] ) ? $_POST['page_type'] : '';
+	$page_type_slug = ( $_POST['page_type_slug'] ) ? $_POST['page_type_slug'] : '';
 
 	$locale = get_bloginfo('language');
 	$site_lang = substr($locale, 0,2);
 
-	// $request = IMPACT_MEASUREMENT_API.$im_config['code'].'&page='.$page_type;
-	$request = IMPACT_MEASUREMENT_API.$im_config['code'].'&page=wp-home';
-	// die($request);
+	$request = IMPACT_MEASUREMENT_API.$im_config['code'].'&page='.$page_type_slug;
 
 	$contents = file_get_contents($request);
 	$response = json_decode($contents, true);
@@ -48,8 +47,8 @@
 		<input type="hidden" name="code" value="<?php echo $response['objects'][0]['code']; ?>">
 		<input type="hidden" name="user" value="<?php echo $user; ?>">
 		<input type="hidden" name="myvhl_user" value="<?php echo $myvhl_user; ?>">
-		<input type="hidden" name="page" value="<?php echo $current_url; ?>">
-		<input type="hidden" name="page_type" value="<?php echo get_page_type(); ?>">
+		<input type="hidden" name="page" value="<?php echo wp_get_referer(); ?>">
+		<input type="hidden" name="page_type" value="<?php echo $page_type; ?>">
 	</form>
 	<div id="feedbackFechar"><i class="fas fa-times"></i></div>
 	<h1><?php _e('Your opinion is very important to us!', 'impact-measurement'); ?></h1>

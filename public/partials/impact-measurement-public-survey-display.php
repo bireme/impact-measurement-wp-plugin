@@ -22,7 +22,7 @@
 
 <!-- Render survey box -->
 
-<div id="boxFeedback" class="bootstrap-iso im-ajax">
+<div id="boxFeedback" class="bootstrap-iso im-ajax" data-ptype="<?php echo get_page_type(); ?>" data-ptslug="<?php echo get_page_type(true); ?>">
     <div id="conteudoFeedback">
         <div class="im-loading">
             <div class="col-md-12 text-center">

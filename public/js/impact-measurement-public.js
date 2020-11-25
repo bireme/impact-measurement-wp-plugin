@@ -109,10 +109,18 @@
         });
 
         $(document).on('click','#boxFeedback.im-ajax',function(e){
-            var survey, _this = $(this);
+            var survey;
+            var _this  = $(this);
+            var ptype  = $('#boxFeedback').data('ptype');
+            var ptslug = $('#boxFeedback').data('ptslug');
             $.ajax({  
                 url: im_script_vars.ajaxurl,  
-                data: { action : 'impact_measurement_ajax_load_survey_box' },  
+                type: 'POST',
+                data: {
+                    action : 'impact_measurement_ajax_load_survey_box',
+                    page_type: ptype,
+                    page_type_slug: ptslug
+                },
                 success: function(response){
                     survey = $.parseHTML( response );
                     $( '#conteudoFeedback' ).replaceWith( response ); 
