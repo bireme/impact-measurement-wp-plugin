@@ -182,14 +182,14 @@
 		</div>
 	</div>
 	<div class="feedback-message">
+        <div class="alert alert-success im-survey" role="alert">
+			<?php $survey = IMPACT_MEASUREMENT_URL.'/survey/?code='.$response['objects'][0]['code'].'&page='.$page_type_slug.'&user='.$user.'&myvhl_user='.$myvhl_user; ?>
+        	<?php _e('Thanks for your feedback!', 'impact-measurement'); ?><br />
+        	<?php _e('You can help us further by answering other questions. You will not spend more than 3 minutes.', 'impact-measurement'); ?><br />
+        	<a href="<?php echo $survey; ?>" target="_blank"><?php _e('Click here to access the survey', 'impact-measurement'); ?></a>
+        </div>
         <div class="alert alert-success result-ok" role="alert">
-        	<?php if ( $im_config['survey'] ) : ?>
-            	<?php _e('Thanks for your feedback!', 'impact-measurement'); ?><br />
-            	<?php _e('You can help us further by answering other questions. You will not spend more than 3 minutes.', 'impact-measurement'); ?><br />
-            	<a href="<?php echo $im_config['survey']; ?>" target="_blank"><?php _e('Click here to access the survey', 'impact-measurement'); ?></a>
-            <?php else : ?>
-            	<?php _e('Thanks for your feedback!', 'impact-measurement'); ?>
-        	<?php endif; ?>
+            <?php _e('Thanks for your feedback!', 'impact-measurement'); ?>
         </div>
         <div class="alert alert-warning result-error" role="alert">
             <?php _e('Communication problem.', 'impact-measurement'); ?>

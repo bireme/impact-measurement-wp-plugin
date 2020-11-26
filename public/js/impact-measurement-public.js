@@ -98,9 +98,14 @@
                 $(".im-questions").hide();
                 $(".im-formdata-submit").hide();
 
-                if ( data == 'True' ) {       
+                if ( data == 'Survey' ) {  
+                    $(".feedback-message").find('.result-ok').hide();
+                    $(".feedback-message").find('.result-error').hide();
+                } else if ( data == 'True' ) {
+                    $(".feedback-message").find('.im-survey').hide();
                     $(".feedback-message").find('.result-error').hide();
                 } else {
+                    $(".feedback-message").find('.im-survey').hide();
                     $(".feedback-message").find('.result-ok').hide();
                 }
 

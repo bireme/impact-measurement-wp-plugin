@@ -28,9 +28,9 @@ $current_language = strtolower(get_bloginfo('language'));
 $site_lang = substr($current_language, 0,2);
 
 if ( defined( 'POLYLANG_VERSION' ) ) {
-	$languages = pll_languages_list();
+    $languages = pll_languages_list();
 } else {
-	$languages = array($site_lang);
+    $languages = array($site_lang);
 }
 
 ?>
@@ -46,36 +46,28 @@ if ( defined( 'POLYLANG_VERSION' ) ) {
         <?php do_settings_sections('impact-measurement-settings-group'); ?>
 
         <table class="form-table" role="presentation">
-        	<tbody>
-        		<tr>
-        			<th scope="row">
-		            	<label for="im-code"><?php _e('Code', 'impact-measurement'); ?></label>
-		            </th>
-		            <td>
-		            	<input type="text" id="im-code" name="impact_measurement_config[code]" value="<?php echo $im_config['code']; ?>" class="regular-text">
-		            </td>
-		        </tr>
-		        <tr>
-        			<th scope="row">
-		            	<?php _e('Status', 'impact-measurement'); ?>
-		            </th>
-		            <td>
-		            	<?php if ( $im_config['status'] ) : ?>
-		            		<div class="im-notice notice inline notice-alt notice-info"><p><?php _e('Active', 'impact-measurement'); ?></p></div>
-		            	<?php else : ?>
-		            		<div class="im-notice notice inline notice-alt notice-warning"><p><?php _e('Inactive', 'impact-measurement'); ?></p></div>
-		            	<?php endif; ?>
-		            </td>
-		        </tr>
-		        <tr>
-        			<th scope="row">
-		            	<label for="im-survey"><?php _e('Survey Link', 'impact-measurement'); ?></label>
-		            </th>
-		            <td>
-		            	<input type="text" id="im-survey" name="impact_measurement_config[survey]" value="<?php echo $im_config['survey']; ?>" class="regular-text">
-		            </td>
-		        </tr>
-	        </tbody>
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        <label for="im-code"><?php _e('Code', 'impact-measurement'); ?></label>
+                    </th>
+                    <td>
+                        <input type="text" id="im-code" name="impact_measurement_config[code]" value="<?php echo $im_config['code']; ?>" class="regular-text">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <?php _e('Status', 'impact-measurement'); ?>
+                    </th>
+                    <td>
+                        <?php if ( $im_config['status'] ) : ?>
+                            <div class="im-notice notice inline notice-alt notice-info"><p><?php _e('Active', 'impact-measurement'); ?></p></div>
+                        <?php else : ?>
+                            <div class="im-notice notice inline notice-alt notice-warning"><p><?php _e('Inactive', 'impact-measurement'); ?></p></div>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            </tbody>
         </table>
 
         <?php submit_button(); ?>
