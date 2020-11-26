@@ -41,18 +41,17 @@
 
 <div id="boxFeedback" class="bootstrap-iso">
 	<div id="conteudoFeedback">
-		<form action="<?php echo IMPACT_MEASUREMENT_URL; ?>/send-feedback/" id="feedbackForm">
-			<input type="hidden" name="code" value="<?php echo $response['objects'][0]['code']; ?>">
-			<input type="hidden" name="user" value="<?php echo $user; ?>">
-			<input type="hidden" name="myvhl_user" value="<?php echo $myvhl_user; ?>">
-			<input type="hidden" name="page" value="<?php echo $current_url; ?>">
-			<input type="hidden" name="page_type" value="<?php echo get_page_type(); ?>">
-		</form>
 		<div id="feedbackFechar"><i class="fas fa-times"></i></div>
 		<h1><?php _e('Your opinion is very important to us!', 'impact-measurement'); ?></h1>
-		<!-- <h2><?php _e('How satisfied are you?', 'impact-measurement'); ?></h2> -->
 		<hr />
 		<div class="im-questions">
+			<form action="<?php echo IMPACT_MEASUREMENT_URL; ?>/send-feedback/" id="feedbackForm">
+				<input type="hidden" name="code" value="<?php echo $response['objects'][0]['code']; ?>">
+				<input type="hidden" name="user" value="<?php echo $user; ?>">
+				<input type="hidden" name="myvhl_user" value="<?php echo $myvhl_user; ?>">
+				<input type="hidden" name="page" value="<?php echo $current_url; ?>">
+				<input type="hidden" name="page_type" value="<?php echo get_page_type(); ?>">
+			</form>
 			<?php foreach ($response['objects'][0]['questions'] as $key => $question) : $text = $question['question'][$site_lang]; ?>
 				<form action="<?php echo IMPACT_MEASUREMENT_URL; ?>/send-feedback/" id="feedbackForm<?php echo $key; ?>">
 					<input type="hidden" name="question" value="<?php echo $question['id']; ?>">
@@ -180,12 +179,19 @@
 			</div>
 		</div>
 		<div class="feedback-message">
-            <div class="alert alert-success im-survey" role="alert">
-            	<?php $survey = IMPACT_MEASUREMENT_URL.'/survey/?code='.$response['objects'][0]['code'].'&page='.$page_type.'&user='.$user.'&myvhl_user='.$myvhl_user; ?>
-            	<?php _e('Thanks for your feedback!', 'impact-measurement'); ?><br />
-            	<?php _e('You can help us further by answering other questions. You will not spend more than 3 minutes.', 'impact-measurement'); ?><br />
-            	<a href="<?php echo $im_config['survey']; ?>" target="_blank"><?php _e('Click here to access the survey', 'impact-measurement'); ?></a>
-            </div>
+			<div class="alert alert-success im-survey" role="alert">
+	            <form method="post" action="<?php echo IMPACT_MEASUREMENT_URL; ?>/survey/" id="surveyForm" class="mejs-button" target="_blank">
+	                <input type="hidden" name="code" value="<?php echo $response['objects'][0]['code']; ?>">
+	                <input type="hidden" name="user" value="<?php echo $user; ?>">
+	                <input type="hidden" name="myvhl_user" value="<?php echo $myvhl_user; ?>">
+	                <input type="hidden" name="page" value="<?php echo $page_type; ?>">
+
+	                <?php _e('Thanks for your feedback!', 'impact-measurement'); ?><br />
+	                <?php _e('You can help us further by answering other questions. You will not spend more than 3 minutes.', 'impact-measurement'); ?><br />
+	                
+	                <button type="submit" id="survey-submit" class="btn btn-block btn-success"><?php _e('Click here to access the survey', 'impact-measurement'); ?></button>
+	            </form>
+	        </div>
             <div class="alert alert-success result-ok" role="alert">
                 <?php _e('Thanks for your feedback!', 'impact-measurement'); ?>
             </div>
