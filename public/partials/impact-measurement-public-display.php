@@ -51,9 +51,10 @@
 				<input type="hidden" name="myvhl_user" value="<?php echo $myvhl_user; ?>">
 				<input type="hidden" name="page" value="<?php echo $current_url; ?>">
 				<input type="hidden" name="page_type" value="<?php echo get_page_type(); ?>">
+            	<input type="hidden" name="page_type_slug" value="<?php echo $page_type; ?>">
 			</form>
 			<?php foreach ($response['objects'][0]['questions'] as $key => $question) : $text = $question['question'][$site_lang]; ?>
-				<form action="<?php echo IMPACT_MEASUREMENT_URL; ?>/send-feedback/" id="feedbackForm<?php echo $key; ?>">
+				<form id="feedbackForm<?php echo $key; ?>">
 					<input type="hidden" name="question" value="<?php echo $question['id']; ?>">
 					<?php if ( 'star' == $question['type'] ) : // Star ?>
 						<div class="row rowQuestion text-center">
@@ -180,11 +181,13 @@
 		</div>
 		<div class="feedback-message">
 			<div class="alert alert-success im-survey" role="alert">
-	            <form method="post" action="<?php echo IMPACT_MEASUREMENT_URL; ?>/survey/" id="surveyForm" class="mejs-button" target="_blank">
+	            <form action="<?php echo IMPACT_MEASUREMENT_URL; ?>/survey/" id="surveyForm" class="mejs-button" target="_blank">
 	                <input type="hidden" name="code" value="<?php echo $response['objects'][0]['code']; ?>">
 	                <input type="hidden" name="user" value="<?php echo $user; ?>">
 	                <input type="hidden" name="myvhl_user" value="<?php echo $myvhl_user; ?>">
-	                <input type="hidden" name="page" value="<?php echo $page_type; ?>">
+	                <input type="hidden" name="page" value="<?php echo base64_encode($current_url); ?>">
+					<input type="hidden" name="page_type" value="<?php echo get_page_type(); ?>">
+            		<input type="hidden" name="page_type_slug" value="<?php echo $page_type; ?>">
 
 	                <?php _e('Thanks for your feedback!', 'impact-measurement'); ?><br />
 	                <?php _e('You can help us further by answering other questions. You will not spend more than 3 minutes.', 'impact-measurement'); ?><br />

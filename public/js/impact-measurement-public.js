@@ -130,10 +130,7 @@
                     survey = $.parseHTML( response );
                     $( '#conteudoFeedback' ).replaceWith( response ); 
                     _this.removeClass('im-ajax');
-                },  
-                error: function(MLHttpRequest, response, errorThrown){  
-                    alert(errorThrown);  
-                }  
+                }
              });  
         });
 

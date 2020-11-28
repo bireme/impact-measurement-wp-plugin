@@ -53,6 +53,7 @@
             <input type="hidden" name="myvhl_user" value="<?php echo $myvhl_user; ?>">
             <input type="hidden" name="page" value="<?php echo wp_get_referer(); ?>">
             <input type="hidden" name="page_type" value="<?php echo $page_type; ?>">
+            <input type="hidden" name="page_type_slug" value="<?php echo $page_type_slug; ?>">
         </form>
         <?php foreach ($response['objects'][0]['questions'] as $key => $question) : $text = $question['question'][$site_lang]; ?>
             <form id="feedbackForm<?php echo $key; ?>">
@@ -182,11 +183,13 @@
     </div>
     <div class="feedback-message">
         <div class="alert alert-success im-survey" role="alert">
-            <form method="post" action="<?php echo IMPACT_MEASUREMENT_URL; ?>/survey/" id="surveyForm" class="mejs-button" target="_blank">
+            <form action="<?php echo IMPACT_MEASUREMENT_URL; ?>/survey/" id="surveyForm" class="mejs-button" target="_blank">
                 <input type="hidden" name="code" value="<?php echo $response['objects'][0]['code']; ?>">
                 <input type="hidden" name="user" value="<?php echo $user; ?>">
                 <input type="hidden" name="myvhl_user" value="<?php echo $myvhl_user; ?>">
-                <input type="hidden" name="page" value="<?php echo $page_type_slug; ?>">
+                <input type="hidden" name="page" value="<?php echo base64_encode(wp_get_referer()); ?>">
+                <input type="hidden" name="page_type" value="<?php echo $page_type; ?>">
+                <input type="hidden" name="page_type_slug" value="<?php echo $page_type_slug; ?>">
 
                 <?php _e('Thanks for your feedback!', 'impact-measurement'); ?><br />
                 <?php _e('You can help us further by answering other questions. You will not spend more than 3 minutes.', 'impact-measurement'); ?><br />
@@ -201,6 +204,16 @@
             <?php _e('Communication problem.', 'impact-measurement'); ?>
             <br />
             <?php _e('Please try again later.', 'impact-measurement'); ?>
+        </div>
+    </div>
+</div>
+
+<?php else : ?>
+
+<div id="conteudoFeedback">
+    <div class="im-error text-center">
+        <div class="alert alert-secondary" role="alert">
+            <?php _e('No search currently found for this page.', 'impact-measurement'); ?>
         </div>
     </div>
 </div>
