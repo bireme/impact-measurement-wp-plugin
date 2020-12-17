@@ -116,9 +116,7 @@ class Impact_Measurement_Public {
 	 */
 	public function impact_measurement_render_survey_box() {
 
-		if ( !is_single() && !is_page() ) {
-	    	include_once 'partials/impact-measurement-public-survey-display.php';
-	    }
+	    include_once 'partials/impact-measurement-public-survey-display.php';
 
 	}
 

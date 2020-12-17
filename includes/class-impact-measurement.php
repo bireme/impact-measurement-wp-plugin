@@ -189,7 +189,7 @@ class Impact_Measurement {
 		$this->loader->add_action( 'wp_footer', $plugin_public, 'impact_measurement_render_survey_box' );
 		$this->loader->add_action( 'wp_ajax_impact_measurement_ajax_load_survey_box', $plugin_public, 'impact_measurement_ajax_load_survey_box' );
 		$this->loader->add_action( 'wp_ajax_nopriv_impact_measurement_ajax_load_survey_box', $plugin_public, 'impact_measurement_ajax_load_survey_box' );
-		$this->loader->add_filter( 'the_content', $plugin_public, 'impact_measurement_after_post_content' );
+		// $this->loader->add_filter( 'the_content', $plugin_public, 'impact_measurement_after_post_content' );
 
 	}
 
