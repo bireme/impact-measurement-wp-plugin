@@ -148,9 +148,19 @@
     animation: spinner-border .75s linear infinite;
 }
 
+@media(max-height: 600px){
+    #boxFeedback{
+        top: 10%;
+    }
+}
 @media (max-width: 768px){
     #boxFeedback{
         top: 80px;
+    }
+}
+@media(max-height: 992px){
+    #boxFeedback{
+        top: 30%;
     }
 }
 
