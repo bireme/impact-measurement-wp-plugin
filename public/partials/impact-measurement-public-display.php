@@ -57,7 +57,7 @@
 				<form id="feedbackForm<?php echo $key; ?>">
 					<input type="hidden" name="question" value="<?php echo $question['id']; ?>">
 					<?php if ( 'star' == $question['type'] ) : // Star ?>
-						<div class="row rowQuestion text-center">
+						<div class="row rowQuestion rowStarRating text-center">
 							<input type="hidden" id="rating" name="rating" value="">
 							<div class="col-12 feedbackTitulo">
 								<b><?php echo ( $text ) ? $text : $question['question'][$locale]; ?></b>
@@ -176,7 +176,7 @@
 		</div>
 		<div class="row im-formdata-submit">
 			<div class="col-12 marginT1">
-				<button type="button" id="formdata-submit" class="btn btn-block btn-primary" disabled><?php _e('Send', 'impact-measurement'); ?></button>
+				<button type="button" id="formdata-submit" class="btn btn-block btn-secondary" disabled><?php _e('Send', 'impact-measurement'); ?></button>
 			</div>
 		</div>
 		<div class="feedback-message">
