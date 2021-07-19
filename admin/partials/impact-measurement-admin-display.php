@@ -67,6 +67,14 @@ if ( defined( 'POLYLANG_VERSION' ) ) {
                         <?php endif; ?>
                     </td>
                 </tr>
+                <tr>
+                    <th scope="row">
+                        <label for="im-survey"><?php _e('Survey Link', 'impact-measurement'); ?></label>
+                    </th>
+                    <td>
+                        <input type="text" id="im-survey" name="impact_measurement_config[survey]" value="<?php echo $im_config['survey']; ?>" class="regular-text">
+                    </td>
+                </tr>
             </tbody>
         </table>
 

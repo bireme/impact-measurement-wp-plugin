@@ -180,30 +180,48 @@
 			</div>
 		</div>
 		<div class="feedback-message">
-			<div class="alert alert-success im-survey" role="alert">
-	            <form action="<?php echo IMPACT_MEASUREMENT_URL; ?>/survey/" id="surveyForm" class="mejs-button" target="_blank">
-	                <input type="hidden" name="code" value="<?php echo $response['objects'][0]['code']; ?>">
-	                <input type="hidden" name="user" value="<?php echo $user; ?>">
-	                <input type="hidden" name="myvhl_user" value="<?php echo $myvhl_user; ?>">
-	                <input type="hidden" name="page" value="<?php echo base64_encode($current_url); ?>">
-					<input type="hidden" name="page_type" value="<?php echo get_page_type(); ?>">
-            		<input type="hidden" name="page_type_slug" value="<?php echo $page_type; ?>">
-
+	        <?php if ( $im_config['survey'] ) : ?>
+	            <div class="alert alert-success im-survey" role="alert">
 	                <?php _e('Thanks for your feedback!', 'impact-measurement'); ?><br />
 	                <?php _e('You can help us further by answering other questions. You will not spend more than 3 minutes.', 'impact-measurement'); ?><br />
-	                
-	                <button type="submit" id="survey-submit" class="btn btn-block btn-success"><?php _e('Click here to access the survey', 'impact-measurement'); ?></button>
-	            </form>
+	                <a href="<?php echo $im_config['survey']; ?>" target="_blank"><?php _e('Click here to access the survey', 'impact-measurement'); ?></a>
+	            </div>
+	        <?php else : ?>
+	            <div class="alert alert-success im-survey" role="alert">
+	                <form action="<?php echo IMPACT_MEASUREMENT_URL; ?>/survey/" id="surveyForm" class="mejs-button" target="_blank">
+	                    <input type="hidden" name="code" value="<?php echo $response['objects'][0]['code']; ?>">
+	                    <input type="hidden" name="user" value="<?php echo $user; ?>">
+	                    <input type="hidden" name="myvhl_user" value="<?php echo $myvhl_user; ?>">
+	                    <input type="hidden" name="page" value="<?php echo base64_encode(wp_get_referer()); ?>">
+	                    <input type="hidden" name="page_type" value="<?php echo $page_type; ?>">
+	                    <input type="hidden" name="page_type_slug" value="<?php echo $page_type_slug; ?>">
+
+	                    <?php _e('Thanks for your feedback!', 'impact-measurement'); ?><br />
+	                    <?php _e('You can help us further by answering other questions. You will not spend more than 3 minutes.', 'impact-measurement'); ?><br />
+	                    
+	                    <button type="submit" id="survey-submit" class="btn btn-block btn-success"><?php _e('Click here to access the survey', 'impact-measurement'); ?></button>
+	                </form>
+	            </div>
+	        <?php endif; ?>
+
+	        <?php if ( $im_config['survey'] ) : ?>
+	            <div class="alert alert-success result-ok" role="alert">
+	                <?php _e('Thanks for your feedback!', 'impact-measurement'); ?><br />
+	                <?php _e('You can help us further by answering other questions. You will not spend more than 3 minutes.', 'impact-measurement'); ?><br />
+	                <a href="<?php echo $im_config['survey']; ?>" target="_blank"><?php _e('Click here to access the survey', 'impact-measurement'); ?></a>
+	            </div>
+	        <?php else : ?>
+	            <div class="alert alert-success result-ok" role="alert">
+	                <?php _e('Thanks for your feedback!', 'impact-measurement'); ?>
+	            </div>
+	        <?php endif; ?>
+
+	        <div class="alert alert-warning result-error" role="alert">
+	            <?php _e('Communication problem.', 'impact-measurement'); ?>
+	            <br />
+	            <?php _e('Please try again later.', 'impact-measurement'); ?>
 	        </div>
-            <div class="alert alert-success result-ok" role="alert">
-                <?php _e('Thanks for your feedback!', 'impact-measurement'); ?>
-            </div>
-            <div class="alert alert-warning result-error" role="alert">
-                <?php _e('Communication problem.', 'impact-measurement'); ?>
-                <br />
-                <?php _e('Please try again later.', 'impact-measurement'); ?>
-            </div>
-        </div>
+	    </div>
 	</div>
 	<div id="iconFeedback">
 		<img src="<?php echo esc_url( IMPACT_MEASUREMENT_PLUGIN_URL . 'images/iconFeedback-'.$site_lang.'.svg' ); ?>" alt="">
