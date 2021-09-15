@@ -83,23 +83,23 @@
                             </div>
                             <div class="col-12">
                                 <span class="feedRadio">
-                                    <label for="1b">1</label>
+                                    <label for="1a">1</label>
                                     <input type="radio" id="1a" name="rating" value="1">
                                 </span>
                                 <span class="feedRadio">
-                                    <label for="2b">2</label>
+                                    <label for="2a">2</label>
                                     <input type="radio" id="2a" name="rating" value="2">
                                 </span>
                                 <span class="feedRadio">
-                                    <label for="3b">3</label>
+                                    <label for="3a">3</label>
                                     <input type="radio" id="3a" name="rating" value="3">
                                 </span>
                                 <span class="feedRadio">
-                                    <label for="4b">4</label>
+                                    <label for="4a">4</label>
                                     <input type="radio" id="4a" name="rating" value="4">
                                 </span>
                                 <span class="feedRadio">
-                                    <label for="5b">5</label>
+                                    <label for="5a">5</label>
                                     <input type="radio" id="5a" name="rating" value="5">
                                 </span>
                             </div>
@@ -128,23 +128,23 @@
                             <div class="col-12 rowOptions">
                                 <div>
                                     <input type="radio" id="5b" name="rating" value="5">
-                                    <label for="5c"><?php _e('Very satisfied', 'impact-measurement'); ?></label>
+                                    <label for="5b"><?php _e('Very satisfied', 'impact-measurement'); ?></label>
                                 </div>
                                 <div>
                                     <input type="radio" id="4b" name="rating" value="4">
-                                    <label for="4c"><?php _e('Satisfied', 'impact-measurement'); ?></label>
+                                    <label for="4b"><?php _e('Satisfied', 'impact-measurement'); ?></label>
                                 </div>
                                 <div>
                                     <input type="radio" id="3b" name="rating" value="3">
-                                    <label for="3c"><?php _e('Neither satisfied nor dissatisfied', 'impact-measurement'); ?></label>
+                                    <label for="3b"><?php _e('Neither satisfied nor dissatisfied', 'impact-measurement'); ?></label>
                                 </div>
                                 <div>
                                     <input type="radio" id="2b" name="rating" value="2">
-                                    <label for="2c"><?php _e('Dissatisfied', 'impact-measurement'); ?></label>
+                                    <label for="2b"><?php _e('Dissatisfied', 'impact-measurement'); ?></label>
                                 </div>
                                 <div>
                                     <input type="radio" id="1b" name="rating" value="1">
-                                    <label for="1c"><?php _e('Very dissatisfied', 'impact-measurement'); ?></label>
+                                    <label for="1b"><?php _e('Very dissatisfied', 'impact-measurement'); ?></label>
                                 </div>
                             </div>
                         </div>
