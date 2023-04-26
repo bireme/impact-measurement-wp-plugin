@@ -99,7 +99,7 @@ class Impact_Measurement_Public {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/impact-measurement-public.js', array( 'jquery' ), $this->version, false );
-		wp_enqueue_script( 'bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( 'bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js', array( 'jquery' ), $this->version, false );
 
 		wp_localize_script($this->plugin_name, 'im_script_vars', array(
                 'ajaxurl' => admin_url( 'admin-ajax.php' ),
